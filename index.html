@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소중한 분들을 초대합니다</title>
+    <style>
+        /* 폰트 및 기본 스타일 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500&family=Nanum+Myeongjo&display=swap');
 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7f2;
+            font-family: 'Noto Serif KR', serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        /* 상단 메인 섹션 */
+        .header {
+            padding: 80px 20px;
+            background-color: #fffaf0;
+        }
+
+        .header h1 {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            color: #8a7d6a;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            font-family: 'Nanum+Myeongjo', serif;
+        }
+
+        /* 초대 문구 */
+        .content {
+            padding: 40px 30px;
+            line-height: 1.8;
+            font-size: 1rem;
+            word-break: keep-all;
+        }
+
+        .divider {
+            width: 50px;
+            height: 1px;
+            background-color: #d1c7bc;
+            margin: 30px auto;
+        }
+
+        /* 일시 및 장소 */
+        .info-section {
+            background-color: #fcfbf9;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            display: block;
+            font-weight: 500;
+            color: #8a7d6a;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+        }
+
+        /* 버튼 스타일 */
+        .map-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #8a7d6a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>INVITATION</h1>
+        <div class="main-title">소중한 초대</div>
+        <p>함께하는 기쁨을 나누고 싶습니다.</p>
+    </div>
+
+    <div class="content">
+        평소 저희를 아껴주시는 <br>
+        고마운 분들을 모시고자 합니다.<br>
+        바쁘시더라도 부디 참석하시어<br>
+        자리를 빛내주시면 감사하겠습니다.
+        
+        <div class="divider"></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-item">
+            <span class="info-label">일시</span>
+            <span class="info-value">2026년 5월 23일 토요일 오후 2시</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">장소</span>
+            <span class="info-value">서울특별시 강남구 OO홀 3층</span>
+        </div>
+        
+        <a href="https://maps.google.com" target="_blank" class="map-button">지도 보기</a>
+    </div>
+
+    <div class="footer">
+        © 2026 잘생김프로쌤. All rights reserved.
+    </div>
+</div>
+
+</body>
+</html>
