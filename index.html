@@ -3,142 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>소중한 분들을 초대합니다</title>
+    <title>당신을 초대합니다</title>
     <style>
-        /* 폰트 및 기본 스타일 */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500&family=Nanum+Myeongjo&display=swap');
+        /* 기본 스타일 */
+        @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+KR:wght@300;500;700&display=swap');
+
+        :root {
+            --primary-color: #3b423c; /* 다크 그레이 그린 - 격식 있는 톤 */
+            --accent-color: #c9a66b;  /* 뮤트 골드 - 고급스러운 포인트 */
+            --bg-color: #fcfbf9;      /* 부드러운 오프 화이트 */
+            --text-color: #555;       /* 본문 텍스트 */
+            --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+        }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: #f9f7f2;
+            background-color: var(--bg-color);
             font-family: 'Noto Serif KR', serif;
-            color: #333;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 450px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            padding-bottom: 50px;
-        }
-
-        /* 상단 메인 섹션 */
-        .header {
-            padding: 80px 20px;
-            background-color: #fffaf0;
-        }
-
-        .header h1 {
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            color: #8a7d6a;
-            margin-bottom: 20px;
-        }
-
-        .main-title {
-            font-size: 2.5rem;
-            margin: 20px 0;
-            font-family: 'Nanum+Myeongjo', serif;
-        }
-
-        /* 초대 문구 */
-        .content {
-            padding: 40px 30px;
+            color: var(--text-color);
             line-height: 1.8;
-            font-size: 1rem;
-            word-break: keep-all;
+            overflow-x: hidden;
         }
 
-        .divider {
-            width: 50px;
+        /* 중앙 정렬 컨테이너 */
+        .wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 페이드인 애니메이션 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            padding: 80px 40px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.2s var(--ease-out) forwards;
+        }
+
+        .section.delay-1 { animation-delay: 0.3s; }
+        .section.delay-2 { animation-delay: 0.6s; }
+
+        /* --- 상단 메인 섹션 --- */
+        .hero {
+            position: relative;
+            background: #fff;
+            padding-bottom: 60px;
+        }
+
+        .ornament {
+            width: 80px;
             height: 1px;
-            background-color: #d1c7bc;
+            background-color: var(--accent-color);
             margin: 30px auto;
         }
 
-        /* 일시 및 장소 */
-        .info-section {
-            background-color: #fcfbf9;
-            margin: 20px;
-            padding: 30px;
-            border-radius: 10px;
+        .sub-title {
+            font-family: 'Marcellus', serif;
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
-        .info-item {
-            margin-bottom: 15px;
+        .main-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .date-hero {
+            font-family: 'Marcellus', serif;
+            color: #888;
+            font-size: 1.1rem;
+            margin-top: 30px;
+        }
+
+        /* --- 인트로 섹션 (배경 패턴) --- */
+        .intro {
+            background-color: #fbfbf7;
+            background-image: repeating-linear-gradient(45deg, #f9f9f5, #f9f9f5 1px, transparent 1px, transparent 10px);
+        }
+
+        .intro p {
+            font-weight: 300;
+            word-break: keep-all;
+        }
+
+        /* --- 디테일 섹션 (시간, 장소, 지도) --- */
+        .details {
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
+
+        .info-block {
+            margin-bottom: 30px;
         }
 
         .info-label {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 8px;
             display: block;
-            font-weight: 500;
-            color: #8a7d6a;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
         }
 
         .info-value {
             font-size: 1.1rem;
+            font-weight: 500;
         }
 
-        /* 버튼 스타일 */
-        .map-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #8a7d6a;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 0.8rem;
+        .sub-value {
+            display: block;
+            font-size: 0.95rem;
             color: #999;
+            margin-top: 4px;
+        }
+
+        /* 버튼 및 지도 */
+        .map-section {
+            margin-top: 50px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: #f0f0ee;
+            border: 1px dashed var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- 하단 섹션 --- */
+        .footer {
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #bbb;
+            background: var(--bg-color);
+        }
+
+        .contact {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 480px) {
+            .section { padding: 60px 30px; }
+            .main-title { font-size: 2.2rem; }
+            .sub-title { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>INVITATION</h1>
-        <div class="main-title">소중한 초대</div>
-        <p>함께하는 기쁨을 나누고 싶습니다.</p>
-    </div>
+<div class="wrapper">
+    <header class="section hero">
+        <div class="sub-title">Inviting You</div>
+        <div class="ornament"></div>
+        <div class="main-title">나의<br>결혼식</div>
+        <div class="date-hero">MAY 23, 2026</div>
+    </header>
 
-    <div class="content">
-        평소 저희를 아껴주시는 <br>
-        고마운 분들을 모시고자 합니다.<br>
-        바쁘시더라도 부디 참석하시어<br>
-        자리를 빛내주시면 감사하겠습니다.
-        
-        <div class="divider"></div>
-    </div>
+    <article class="section intro delay-1">
+        <p>
+            서로 다른 세상에서 살아온 저희가<br>
+            이제 사랑과 믿음으로<br>
+            하나의 세상을 만드려 합니다.<br><br>
+            저희의 새로운 출발을 축복해 주시는<br>
+            그 따뜻한 마음, 소중히 간직하겠습니다.<br>
+            귀한 걸음으로 자리를 빛내주세요.
+        </p>
+    </article>
 
-    <div class="info-section">
-        <div class="info-item">
-            <span class="info-label">일시</span>
-            <span class="info-value">2026년 5월 23일 토요일 오후 2시</span>
+    <section class="section details delay-2">
+        <h3 class="info-title">Wedding Day</h3>
+
+        <div class="info-block">
+            <span class="info-label">DATE / TIME</span>
+            <div class="info-value">
+                2026년 5월 23일<br>
+                토요일 오후 2시
+            </div>
         </div>
-        <div class="info-item">
-            <span class="info-label">장소</span>
-            <span class="info-value">서울특별시 강남구 OO홀 3층</span>
-        </div>
-        
-        <a href="https://maps.google.com" target="_blank" class="map-button">지도 보기</a>
-    </div>
 
-    <div class="footer">
-        © 2026 잘생김프로쌤. All rights reserved.
-    </div>
+        <div class="info-block">
+            <span class="info-label">LOCATION</span>
+            <div class="info-value">
+                OO웨딩홀<br>
+                <span class="sub-value">그랜드볼룸 3층 (서울 강남구 XX동 123)</span>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <div class="map-placeholder">
+                여기에 지도를 연동할 수 있습니다.
+            </div>
+            <a href="https://maps.app.goo.gl/XXXXXXXXXXX" target="_blank" class="btn">
+                지도 열기
+            </a>
+        </div>
+    </section>
+
+    <footer class="section footer delay-2">
+        <div class="contact">김철수 & 이영희 올림</div>
+        <p>© 2026. Invitation. All rights reserved.</p>
+    </footer>
 </div>
 
 </body>
